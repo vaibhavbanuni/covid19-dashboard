@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script {
                     // Define the Docker image and the Docker tag
-                    def dockerImage = 'covid-monitor-app'
+                    def dockerImage = 'aryansr/covid-monitor-app'
                     def dockerTag = 'latest'
                     def dockerRegistry = 'https://docker.io'
                     def dockerCredentialsId = 'dockerhub-cred'
