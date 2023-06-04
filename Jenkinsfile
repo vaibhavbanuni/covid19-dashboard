@@ -18,10 +18,8 @@ pipeline {
                     def dockerRegistry = 'https://docker.io'
                     def dockerCredentialsId = 'dockerhub-cred'
                     // Starting the build process
-                    docker.withRegistry(dockerRegistry,dockerCredentialsId) {
-                        def dockerBuild = docker.build("${dockerImage}:${dockerTag}",'.')
-                        dockerBuild.push()
-                    }
+                    def dockerBuild = docker.build("${dockerImage}:${dockerTag}",'.')
+                    dockerBuild.push()
                 
                 }
             }
