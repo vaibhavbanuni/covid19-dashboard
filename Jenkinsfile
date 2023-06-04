@@ -15,7 +15,7 @@ pipeline {
                     // Define the Docker image and the Docker tag
                     def dockerImage = 'covid-monitor-app'
                     def dockerTag = 'latest'
-                    def dockerRegistry = 'https://hub.docker.com'
+                    def dockerRegistry = 'https://registry.hub.docker.com'
                     def dockerCredentialsId = 'dockerhub-cred'
                     // Starting the build process
                     docker.withRegistry(dockerRegistry,dockerCredentialsId) {
