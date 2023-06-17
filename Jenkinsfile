@@ -15,7 +15,7 @@ pipeline {
                     // Define the Docker image and the Docker tag
                     def dockerImage = 'aryansr/covid-monitor-app'
                     def dockerTag = 'latest'
-                    def dockerRegistry = 'https://docker.io'
+                    //def dockerRegistry = 'https://docker.io'
                     def dockerCredentialsId = 'dockerhub-cred'
                     // Starting the build process
                     def dockerBuild = docker.build("${dockerImage}:${dockerTag}",'.')
