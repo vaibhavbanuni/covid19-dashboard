@@ -17,7 +17,9 @@ pipeline {
                     def dockerCredentialsId = "aryan-docker"
                     // Starting the Build Process
                     def dockerBuild = docker.build("${dockerImage}:${dockerTag}",'.')
-                    dockerBuild.push()
+                    docker.withRegistry('', dockerCredentialsId) {
+                        dockerBuild.push()
+                    }
                 }
             }
         }
