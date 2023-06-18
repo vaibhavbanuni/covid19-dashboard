@@ -13,7 +13,7 @@ pipeline {
                 script {
                     // Defining Docker Image and Tag variables
                     def dockerImage = "aryansr/jenkins-covid-app"
-                    def dockerTag = "v1"
+                    def dockerTag = "latest"
                     def dockerCredentialsId = "aryan-docker"
                     // Starting the Build Process
                     def dockerBuild = docker.build("${dockerImage}:${dockerTag}",'.')
@@ -21,6 +21,11 @@ pipeline {
                         dockerBuild.push()
                     }
                 }
+            }
+        }
+        stage('Deploy') {
+            withKubeConfig([credentialsId: 'akskubeconfig', serverUrl: 'networknuts-dns-kg6hiwja.hcp.centralindia.azmk8s.io']) {
+                sh 'kubectl apply -f deployment.yml'
             }
         }
     }
