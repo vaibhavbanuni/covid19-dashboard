@@ -24,8 +24,11 @@ pipeline {
             }
         }
         stage('Deploy') {
-            withKubeConfig([credentialsId: 'akskubeconfig', serverUrl: 'networknuts-dns-kg6hiwja.hcp.centralindia.azmk8s.io']) {
-                sh 'kubectl apply -f deployment.yml'
+            steps {
+                script {
+                    withKubeConfig([credentialsId: 'akskubeconfig', serverUrl: 'networknuts-dns-kg6hiwja.hcp.centralindia.azmk8s.io']) {
+                        'sh kubectl apply -f deployment.yml'
+                }
             }
         }
     }
