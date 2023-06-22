@@ -14,7 +14,7 @@ pipeline {
                     // Defining Docker Image and Tag variables
                     def dockerImage = "vaibhavbanuni/jenkins-covid-app"
                     def dockerTag = "latest"
-                    def dockerCredentialsId = "Bashrc@2023"
+                    def dockerCredentialsId = ""
                     // Starting the Build Process
                     def dockerBuild = docker.build("${dockerImage}:${dockerTag}",'.')
                     docker.withRegistry('', dockerCredentialsId) {
