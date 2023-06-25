@@ -27,7 +27,7 @@ pipeline {
             steps {
                 script {
                                                               
-                       sh "docker run -d --name covidapp -p 8000:8000 vaibhavbanuni/jenkins-covid-app:latest" 
+                       sh "docker run -d --name covidapp -p 8000:8000 vaibhavbanuni/jenkins-covid-app:latest" { 
                 }
             }
         }
