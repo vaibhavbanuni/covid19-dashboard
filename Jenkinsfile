@@ -26,8 +26,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    withKubeConfig([credentialsId: 'akskubeconfig', serverUrl: 'https://networknuts-dns-kg6hiwja.hcp.centralindia.azmk8s.io']) {
-                        sh 'kubectl apply -f deployment.yml'
+                                                            
+                sh "docker run -d --name covidapp -p 8000:8000 vaibhavbanuni/jenkins-covid-app:latest" 
                 }
             }
         }
