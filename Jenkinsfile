@@ -24,6 +24,9 @@ pipeline {
             }
         }
         stage('Deploy') {
+            agent {
+                label 'jk'
+            }
             steps {
                 script {
                     docker.image('vaibhavbanuni/jenkins-covid-app:latest').run('-d -p 8000:8000 --name covidapp') { 
