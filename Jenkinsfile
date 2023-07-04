@@ -24,12 +24,9 @@ pipeline {
             }
         }
         stage('Deploy') {
-            agent {
-                label 'jk'
-            }
             steps {
                 script {
-                    sh  "docker run -d --name covid -p 8000:8000 vaibhavbanuni/jenkins-covid-app:latest" { 
+                       sh  "docker run -d --name covid -p 8000:8000 vaibhavbanuni/jenkins-covid-app:latest" { 
                 }
             }
         }
