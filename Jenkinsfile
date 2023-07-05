@@ -26,7 +26,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                       sh  'docker run -d --name covid -p 8000:8000 vaibhavbanuni/jenkins-covid-app:latest'  
+                     withKubeConfig([credentialsId: 'k8s', serverUrl: 'kubeadm.kubernetes.io/kube-apiserver.advertise-address.endpoint: 192.168.18.137:6443']) {
+                        sh 'kubectl create -f deployment.yml'
+                }
                 
             }
         }
