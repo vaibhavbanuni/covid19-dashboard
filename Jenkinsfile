@@ -24,12 +24,12 @@ pipeline {
             }
         }
         stage('Deploy') {
+            agent { label 'kubenode' }
             steps {
                 script {
                     withKubeConfig([credentialsId: 'k8s', serverUrl: 'kubeadm.kubernetes.io/kube-apiserver.advertise-address.endpoint: 192.168.18.137:6443']) {
                         sh 'kubectl create -f deployment.yml'
                 }
-                
             }
         }
     }
