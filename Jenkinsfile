@@ -12,7 +12,7 @@ pipeline {
             steps {
                 script {
                     // Defining Docker Image and Tag variables
-                    def dockerImage = "vaibhavbanuni/jenkins-covid-app"
+                    def dockerImage = "vaibhavbanuni/jenkins-node-app"
                     def dockerTag = "latest"
                     def dockerCredentialsId = "Dockerhub"
                     // Starting the Build Process
