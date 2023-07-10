@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
 
@@ -26,7 +27,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    kubernetescDeploy([credentialsId: 'k8s', serverUrl: '192.168.18.137:6443']) {
+                    withKubeConfig([credentialsId: 'k8s', serverUrl: '192.168.18.137:6443']) {
                         sh 'kubectl create -f deployment.yml'
                 }
             }
